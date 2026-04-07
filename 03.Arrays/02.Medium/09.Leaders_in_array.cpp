@@ -1,5 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+/* Key points
+
+    1) In the end its reversal not sort
+    2) condition check for nums[i]>maxi instead of >= to avoid duplicate numbers from coming to array
+        (saw such testcases in TUF+)
+
+*/
 /*
 QUESTION:-
 
