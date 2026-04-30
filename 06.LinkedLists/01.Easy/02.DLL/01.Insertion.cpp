@@ -72,11 +72,11 @@ ListNode* insertBeforeTarget(ListNode* head, int target, int val)
 {
     // assume target is always present
     
-
     ListNode* temp=new ListNode(val,nullptr,nullptr);
     
     ListNode* curr=head;
     while(curr!=NULL)
+    
     {
         if(curr->data==target) break;
         
