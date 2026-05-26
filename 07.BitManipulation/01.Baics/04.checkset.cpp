@@ -1,4 +1,4 @@
-bool checksit(int n, int i)
+bool checkset(int n, int i)
 {
     // check whether ith bit is set assume i is from 0;
     return n>>i &1;

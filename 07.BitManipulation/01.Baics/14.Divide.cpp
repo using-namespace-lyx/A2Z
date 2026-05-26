@@ -37,3 +37,29 @@ int divide(int n, int d) {
     if (quotient > INT_MAX) return INT_MAX;
     return (int)quotient;
 }
+
+class Solution {
+public:
+   int divide(int dividend, int divisor) {
+    // 1. Handle the specific Overflow case
+    if (dividend == INT_MIN && divisor == -1) return INT_MAX;
+
+    // 2. Determine if the result should be negative
+    // XOR operator ^ returns true if one is negative and one is positive
+    bool negative = (dividend < 0) ^ (divisor < 0);
+
+    // 3. Use long long to prevent overflow when using abs()
+    long long n = abs((long long)dividend);
+    long long d = abs((long long)divisor);
+    
+    int count = 0;
+    
+    // 4. Use >= to include cases where they are equal
+    while (n >= d) {
+        n -= d;
+        count++;
+    }
+
+    return negative ? -count : count;
+}
+};
