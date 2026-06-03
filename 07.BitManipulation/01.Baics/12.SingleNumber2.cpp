@@ -5,7 +5,7 @@ using namespace std;
 int solution1(vector<int> arr)
 {
     int ans=0;
-    for(int index=0;index<31;index++)
+    for(int index=0;index<32;index++)
     {
         int count=0;
         for(int i=0;i<arr.size();i++)
@@ -34,4 +34,17 @@ int solution2(vector<int> arr)
     }
 
     return arr[arr.size()-1];
+}
+
+int solution3(vector<int> arr)
+{
+    int ones=0,twos=0;
+    for(int num:arr)
+    {
+        ones= (num ^ones) & ~twos;
+        twos =( twos ^ num) & ~ones;
+
+    }
+
+    return ones;
 }
