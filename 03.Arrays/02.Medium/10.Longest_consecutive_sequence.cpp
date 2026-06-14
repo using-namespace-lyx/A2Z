@@ -30,7 +30,7 @@ bool ls(vector<int> &nums, int x)
 }
 int lcsbrute(vector<int> &nums)
 {
-    int count=0;
+    int count=0,maxcount=0;
     int n=nums.size();
     for(int i=0;i<n;i++)
     {
@@ -42,9 +42,11 @@ int lcsbrute(vector<int> &nums)
             count++;
             x++;
         }
+
+        maxcount=max(maxcount,count);
     }
 
-    return count;
+    return maxcount;
 }
 
 
