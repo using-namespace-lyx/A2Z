@@ -76,6 +76,6 @@ int lowerBound(vector<int> nums, int x)
     return ( (lower_bound(nums.begin(),nums.end(),x) ) - nums.begin() );
 
     // lower bound within the arr range of x
-    // lower_bound returns an iterayor to index , to get index int subtract it from nums.begin()
+    // lower_bound returns an iterator to index , to get index int subtract it from nums.begin()
 }
 

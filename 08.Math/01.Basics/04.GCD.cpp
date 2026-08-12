@@ -28,6 +28,7 @@ int findGcd(int n1, int n2) {
 
 int gcd(int a,int b)
 {
+    // log (min(a,b)) to base phiwhere phi is golden ratio worst case in terms of fibonacci neighbours
     while(a>0 && b>0)
     {
         if(a>b) a=a%b;

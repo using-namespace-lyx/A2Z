@@ -71,12 +71,12 @@ int majority(vector<int> &nums)
 // More's voting algorithm
 int majorityElement(vector<int> &nums)
 {
-    int candidate = nums[0];
-    int n=nums.size(),count=0;
-    int vote = 1;
-    for (int i = 1; i < nums.size(); i++)
+    int candidate;
+    int n=nums.size();
+    int vote = 0,count=0;
+    for (int i = 0; i < n; i++)
     {
-        if (vote <= 0)
+        if (vote == 0)
             candidate = nums[i];
         if (nums[i] == candidate)
             vote++;

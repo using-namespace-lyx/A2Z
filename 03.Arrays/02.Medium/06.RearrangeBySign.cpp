@@ -49,6 +49,8 @@ vector<int> reArrange(vector<int> nums)
             pos+=2;
         }
     }
+
+    return ans;
 }
 
 vector<int> reArrange(vector<int> nums)
@@ -111,7 +113,7 @@ vector<int> reArrange(vector<int> nums)
         for(int i=0;i<n1;i++)
         {
             nums[2*i]=pos[i];
-            nums[2*i]=neg[i];
+            nums[2*i+1]=neg[i];
         }
         int index=2*n1;
         for(int i=n1;i<n2;i++)
@@ -125,14 +127,16 @@ vector<int> reArrange(vector<int> nums)
         for(int i=0;i<n2;i++)
         {
             nums[2*i]=pos[i];
-            nums[2*i]=neg[i];
+            nums[2*i+1]=neg[i];
         }
         int index=2*n2;
         for(int i=n2;i<n1;i++)
         {
-            nums[index++]=neg[i];
+            nums[index++]=pos[i];
         }
 
     }
+
+    return nums;
 }
 
