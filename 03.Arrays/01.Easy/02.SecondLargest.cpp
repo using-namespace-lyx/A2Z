@@ -51,26 +51,29 @@ int second(vector<int> nums)
 
 // Optimal
 
-int second(vector<int> nums)
-{
-    int n=nums.size();
+class Solution {
+public:
+    int secondLargestElement(vector<int>& nums) {
+        //your code goes here
 
-    int maxi=-1,sec=-1;
+        int maxi=-INT_MIN,sec=INT_MIN;
 
-    for(int i=0;i<n;i++)
-    {
-        if(nums[i]>=maxi)
+        for(int num:nums)
         {
-            sec=maxi;
-            maxi=nums[i];
+            if(num>maxi)
+            {
+                sec=maxi;
+                maxi=num;
+
+            }
+            else if(num<maxi && num>sec)
+            {
+                sec=num;
+            }
         }
 
-        else if(nums[i]> sec)
-        {
-            sec=nums[i];
-        }
+        return sec==INT_MIN? -1:sec;
+      
     }
-
-    return sec;
-}
+};
 

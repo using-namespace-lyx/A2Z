@@ -52,7 +52,23 @@ public:
         
     }
 };
+/*
+The key idea is to divide the array into four regions using three pointers:
 
+0 to low-1 → all 0s
+low to mid-1 → all 1s
+mid to high → unknown elements
+high+1 to n-1 → all 2s
+
+We process the unknown region using mid.
+
+For every nums[mid]:
+
+If it is 0, swap it with nums[low] and move both low and mid.
+If it is 1, it is already in the correct middle region, so just move mid.
+If it is 2, swap it with nums[high] and move high. We don't move mid because the element swapped from high has not been checked yet.
+
+This allows us to sort the array in a single pass without using any extra array.*/
 class Solution {
 public:
     void sortZeroOneTwo(vector<int>& nums) {

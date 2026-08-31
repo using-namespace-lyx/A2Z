@@ -52,26 +52,39 @@ int maxsum(vector<int> &nums)
 }
 
 // CODE:-
-int maxSubArray(vector<int> &nums)
-{
-    int curr_sum = 0;
-    int ans = INT_MIN;
-    int start=-1,arrstart=-1,arrend=-1;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if(curr_sum==0) start=i;
-        curr_sum += nums[i];
-        if(curr_sum>ans)
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+
+        int sum=0,n=nums.size();
+        int arrstart,start,arrEnd;
+        int maxi=INT_MIN;
+
+        for(int i=0;i<n;i++ )
         {
-            ans=curr_sum;
-            arrstart=start;
-            arrend=i;
+            if(sum==0)
+            {
+                start=i;
+            }
+            sum+=nums[i];
+
+            if(sum>maxi)
+            {
+                maxi=sum;
+                arrstart=start;
+                arrEnd=i;
+            }
+
+            if(sum<0)
+            {
+                sum=0;
+            }
         }
-        if (curr_sum < 0)
-            curr_sum = 0;
+
+        return maxi;
+        
     }
-    return ans;
-}
+};
 
 // TIME COMPLEXITY = O(N)
 // SPACE COMPLEXITY = O(0)
