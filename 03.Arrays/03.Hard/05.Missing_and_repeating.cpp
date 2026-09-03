@@ -74,3 +74,49 @@ pair<int,int> findmath(vector<int> &nums)
 
     return {x,y};
 }
+
+class Solution {
+public:
+    vector<int> findMissingRepeatingNumbers(vector<int> nums) {
+
+        int n=nums.size();
+        int xorr=0;
+
+        for(int i=0;i<n;i++)
+        {
+            xorr^=(i+1);
+            xorr^=nums[i];
+        }
+
+        int bitmask = xorr ^ (xorr & (xorr-1));
+
+        
+
+
+        int zero=0,one=0;
+
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i] & bitmask)
+            one^=nums[i];
+            else
+            zero^=nums[i];
+
+            if((i+1) & bitmask)
+            one^=(i+1);
+            else
+            zero^=(i+1);
+        }
+        int i;
+        for( i=0;i<n;i++)
+        {
+            if(zero==nums[i])
+            break;
+        }
+        if(i==n) return {one,zero};
+
+        return {zero,one};
+
+
+    }
+};
